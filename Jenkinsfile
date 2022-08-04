@@ -34,7 +34,7 @@ stage('Login to Docker hub') {
              
             steps 
 	      {
-                sh "sudo docker run -d -p 8004:8080 meghashirani/my_new_tomcat:latest"
+                sh "sudo docker run -d -p 8040:8080 meghashirani/my_new_tomcat:latest"
              }
         }
  
