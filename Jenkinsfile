@@ -11,8 +11,8 @@ pipeline {
   stage('Docker Build and Tag') {
            steps {  
 		 
-                sh 'sudo docker build -t samplewebapp:latest .' 
-                sh 'sudo docker tag samplewebapp meghashirani/samplewebapp:latest' 
+                sh 'sudo docker build -t my_new_tomcat:latest .' 
+                sh 'sudo docker tag my_new_tomcat meghashirani/my_new_tomcat:latest' 
             }
         }
 
@@ -26,7 +26,7 @@ stage('Login to Docker hub') {
   stage('Publish image to Docker Hub') {
           
             steps {
-       	  sh  'sudo docker push meghashirani/samplewebapp:latest'  
+       	  sh  'sudo docker push meghashirani/my_new_tomcat:latest'  
         }                 
           
         }     
@@ -34,7 +34,7 @@ stage('Login to Docker hub') {
              
             steps 
 	      {
-                sh "sudo docker run -d -p 8004:8080 meghashirani/samplewebapp:latest"
+                sh "sudo docker run -d -p 8004:8080 meghashirani/my_new_tomcat:latest"
              }
         }
  
